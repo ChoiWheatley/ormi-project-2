@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+<div class="main">
+    <div class="container">
+        <h2>로그아웃 되었습니다.</h2>
+        <a href="/">main</a>
+        <a href="{% url 'users:signin' %}">로그인</a>
+        <a href="{% url 'users:signup' %}">회원가입</a>
+    </div>
+</div>
+{% endblock body %}
+    
