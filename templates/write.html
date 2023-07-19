@@ -25,25 +25,22 @@
             <th><label for="category">카테고리</label></th>
             <td>
               <select id="category">
-                <option value="1">일반</option>
-                <option value="2">공지사항</option>
+                
+                {% for key, value in form.fields.category.choices  %}
+                <option value="{{ key }}">{{ value }}</option>
+                {% endfor %}
+                  
               </select>
             </td>
           </tr>
           <tr>
             <th><label for="board-title">제목</label></th>
-            <td><input type="text" id="board-title" name="boardTitle"></td>
+            <td>{{ form.title }}</td>
           </tr>
           <tr>
             <th><label for="board-content">내용</label></th>
             <td>
-              {{ form }}
-            </td>
-          </tr>
-          <tr>
-            <th><label for="board-file">파일첨부</label></th>
-            <td>
-              <input type="file" id="board-file">
+              {{ form.content }}
             </td>
           </tr>
         </tbody>

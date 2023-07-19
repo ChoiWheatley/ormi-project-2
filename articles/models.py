@@ -24,13 +24,14 @@ class Article(models.Model):
     likes = models.ManyToManyField(User, related_name="likes", blank=True)
 
     class Category(models.TextChoices):
-        TECH = "TECH", lazy("Technical")
-        FOOD = 'FOOD', lazy("Foods")
-        MUSIC = "MUSIC", lazy("Musics")
-        EMOTIONS = "EMOTIONS", lazy("Emotions")
-        SCIENCE = "SCIENCE", lazy("Science")
-        ARTS = "ARTS", lazy("Arts")
-        MISC = "MISC", lazy("Miscellaneous")
+        TECH = "TECH", lazy("기술")
+        FOOD = 'FOOD', lazy("음식")
+        MUSIC = "MUSIC", lazy("음악")
+        EMOTIONS = "EMOTIONS", lazy("감정")
+        SCIENCE = "SCIENCE", lazy("과학")
+        ARTS = "ARTS", lazy("예술")
+        ANNOUNCE = "ANNOUNCE", lazy("공지")
+        MISC = "MISC", lazy("기타")
 
     # Article }o--|| Category
     category = models.CharField(max_length=10, choices=Category.choices, default=Category.MISC)
