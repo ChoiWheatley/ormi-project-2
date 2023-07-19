@@ -16,11 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from articles.views import IndexView
+from .views import IndexView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", IndexView.as_view(), name="index"),
     path("users/", include("users.urls")),
+    path("articles/", include("articles.urls")),
     path("tinymce/", include("tinymce.urls")),
 ]
