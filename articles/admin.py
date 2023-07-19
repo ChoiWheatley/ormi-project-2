@@ -1,5 +1,4 @@
 from django.contrib import admin
+from articles.models import Article
 
-
-class Admin(admin.ModelAdmin):
-    pass
+admin.site.register(Article)
