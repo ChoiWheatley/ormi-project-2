@@ -22,6 +22,6 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", IndexView.as_view(), name="index"),
     path("users/", include("users.urls")),
-    path("articles/", include("articles.urls")),
+    path("blog/", include("articles.urls")),
     path("tinymce/", include("tinymce.urls")),
 ]
