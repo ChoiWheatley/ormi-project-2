@@ -1,12 +1,12 @@
 from django import forms
-from django.contrib.flatpages.models import FlatPage
 from tinymce.widgets import TinyMCE
+from articles.models import Article
 
 
-class FlatPageForm(forms.ModelForm):
+class NewArticleForm(forms.ModelForm):
     """TinyMCE widget"""
 
     class Meta:
-        model = FlatPage
+        model = Article
         widgets = {"content": TinyMCE(attrs={"cols": 80, "rows": 30})}
-        fields = []
+        fields = ["title", "content", "category"]

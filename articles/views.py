@@ -3,7 +3,7 @@ from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView
 from articles.models import Article
-from articles.forms import FlatPageForm
+from articles.forms import NewArticleForm
 
 
 class List(ListView):
@@ -26,7 +26,7 @@ class New(CreateView):
 
     def get(self, request: HttpRequest, *args: str, **kwargs: Any) -> HttpResponse:
         """get template and context to draw page"""
-        form = FlatPageForm()
+        form = NewArticleForm()
         context = {"form": form}
 
         return render(
