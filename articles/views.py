@@ -1,5 +1,9 @@
-from django.views.generic import ListView, DetailView
+from typing import Any
+from django.http import HttpRequest, HttpResponse
+from django.shortcuts import render
+from django.views.generic import ListView, DetailView, CreateView
 from articles.models import Article
+from articles.forms import FlatPageForm
 
 
 class List(ListView):
@@ -17,7 +21,21 @@ class Detail(DetailView):
     template_name = "view.html"
     model = Article
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        # TODO like user, visit count
-        return context
+class New(CreateView):
+    """Create new article"""
+
+    def get(self, request: HttpRequest, *args: str, **kwargs: Any) -> HttpResponse:
+        """get template and context to draw page"""
+        form = FlatPageForm()
+        context = {"form": form}
+
+        return render(
+            request,
+            "write.html",
+            context=context,
+        )
+
+    def post(self, request: HttpRequest, *args: str, **kwargs: Any) -> HttpResponse:
+        """post request that creates a new article"""
+        # TODO impl
+        return super().post(request, *args, **kwargs)

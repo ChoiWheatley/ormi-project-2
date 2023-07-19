@@ -1,31 +1,10 @@
-<!DOCTYPE html>
-<html lang="ko-KR">
+{% extends 'base.html' %}
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>글쓰기</title>
-  <link rel="stylesheet" href="./css/common.css">
-  <link rel="stylesheet" href="./css/table.css">
-  <link rel="stylesheet" href="./css/write.css">
+{% load static %}
 
-</head>
 
-<body>
-  <!-- header -->
-  <div class="header">
-    <h1><a href="index.html">HTML/CSS 실습</a></h1>
-    <div class="header-click">
-      <a href="chat.html">채팅</a>
-      <a href="login.html">로그인</a>
-      <a href="join.html">회원가입</a>
-      <button type="button">로그아웃</button>
-    </div>
-  </div>
-  <!-- // header -->
-
-  <div class="main">
+{% block body %}
+<div class="main">
     <!-- 글쓰기 페이지 -->
     <h2 class="main-title">글쓰기</h2>
     <p class="main-desc">내용을 입력 해주세요.</p>
@@ -73,10 +52,18 @@
 
     <!--  //글쓰기 페이지 -->
   </div>
+{% endblock body %}
+  
+<!DOCTYPE html>
+<html lang="ko-KR">
 
-  <!-- footer -->
-  <p class="footer">Copyright 2023. Chilli All rights reserved.</p>
-  <!-- //footer -->
-</body>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>글쓰기</title>
+  <link rel="stylesheet" href="./css/common.css">
+  <link rel="stylesheet" href="./css/table.css">
+  <link rel="stylesheet" href="./css/write.css">
 
-</html>
+</head>
