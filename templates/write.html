@@ -24,13 +24,7 @@
           <tr>
             <th><label for="category">카테고리</label></th>
             <td>
-              <select id="category">
-                
-                {% for key, value in form.fields.category.choices  %}
-                <option value="{{ key }}">{{ value }}</option>
-                {% endfor %}
-                  
-              </select>
+              {{ form.category }}
             </td>
           </tr>
           <tr>
