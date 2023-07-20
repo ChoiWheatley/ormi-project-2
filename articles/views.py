@@ -1,7 +1,9 @@
 from typing import Any
-from django.http import HttpRequest, HttpResponse
-from django.shortcuts import render
+from django.http import HttpRequest, HttpResponse, HttpResponseServerError
+from django.shortcuts import redirect, render
+from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from articles.models import Article
 from articles.forms import NewArticleForm
 
@@ -21,8 +23,10 @@ class Detail(DetailView):
     template_name = "view.html"
     model = Article
 
-class New(CreateView):
+
+class New(LoginRequiredMixin, CreateView):
     """Create new article"""
+    template_name = "write.html"
 
     def get(self, request: HttpRequest, *args: str, **kwargs: Any) -> HttpResponse:
         """get template and context to draw page"""
@@ -31,11 +35,20 @@ class New(CreateView):
 
         return render(
             request,
-            "write.html",
+            self.template_name,
             context=context,
         )
 
     def post(self, request: HttpRequest, *args: str, **kwargs: Any) -> HttpResponse:
         """post request that creates a new article"""
-        # TODO impl
-        return super().post(request, *args, **kwargs)
+        form = NewArticleForm(request.POST)
+        if form.is_valid():
+            # save and redirect
+
+            article = form.save(commit=False)
+            article.author = request.user
+            article.save()
+
+            return redirect(reverse_lazy("articles:list"))
+
+        return render(request, self.template_name, context={"form": form})
