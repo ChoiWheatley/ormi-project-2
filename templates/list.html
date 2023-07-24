@@ -1,54 +1,44 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
-
 {% block title %}
 전체 글 목록
 {% endblock title %}
-    
-
 
 {% block body %}
-<div class="main">
-    <h2 class="main-title">게시판</h2>
+<div class="container">
+    <h2 class="fw-bolder">게시판</h2>
 
-    <div class="board-top">
-        <p class="main-desc"><strong>{{ object_list|length }}개</strong>의 게시글이 있습니다.</p>
+    <div class="text-muted">
+        <p><strong>{{ object_list|length }}개</strong>의 게시글이 있습니다.</p>
 
-        <div>
-            <label for="category" class="a11y-hidden">카테고리</label>
-            <select id="category">
-                <option>전체</option>
-                <option>공지사항</option>
-                <option>일반</option>
-            </select>
-            <form class="search-form">
-                <label for="search" class="a11y-hidden">검색</label>
-                <input id="search" type="search" placeholder="검색어를 입력해주세요" />
-                <button type="submit">
+        <form>
+            <div class="mx-md-auto p-2 mt-5 mb-5 bg-light">
+                <label for="category" class="text-muted">카테고리</label>
+                <select class="form-select" id="category">
+                    <option>전체</option>
+                    <option>공지사항</option>
+                    <option>일반</option>
+                </select>
+
+                <label for="sort" class="text-muted">정렬</label>
+                <select class="form-select" id="sort">
+                    <option>조회순</option>
+                    <option>최신순</option>
+                </select>
+
+                <label for="search" class="text-muted">검색</label>
+                <input id="search" type="search" class="form-control" placeholder="검색어를 입력해주세요" />
+                <button class="p-2 rounded float-end" type="submit">
                     <img src="{% static 'img/icon-search.png' %}" alt="검색" />
                 </button>
-            </form>
 
-            <label for="sort" class="a11y-hidden">정렬</label>
-            <select id="sort">
-                <option>조회순</option>
-                <option>최신순</option>
-            </select>
-        </div>
+            </div>
+        </form>
     </div>
 
     <!-- 게시판 리스트 -->
-    <table class="table list">
-        <colgroup>
-            <col style="width: 40px" />
-            <col style="width: 60px" />
-            <col />
-            <col style="width: 100px" />
-            <col style="width: 120px" />
-            <col style="width: 100px" />
-        </colgroup>
+    <table class="table">
         <thead>
             <tr>
                 <th>
