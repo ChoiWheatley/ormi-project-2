@@ -14,7 +14,7 @@ class List(ListView):
     template_name = "list.html"
     model = Article
     queryset = Article.objects.all().order_by("-modified_at")
-    paginate_by = 0
+    paginate_by = 2
 
 
 class Detail(DetailView):
