@@ -1,7 +1,12 @@
-{% extends 'base.html' %} {% load static %} 
+{% extends 'base.html' %}
+
+{% load static %}
+
 {% block body %}
-<div class="main">
-  <h2 class="main-title">Welcome!</h2>
-  <a href="{% url 'articles:list' %}" class="btn">전체 글</a>
+<div class="container p-3 mt-3 bg-light border rounded">
+  <div class="row">
+    <h2 class="mx-md-auto mx-3 col-11 mt-3">Welcome!</h2>
+    <a class="btn btn-lg col-3 btn-primary m-3" href="{% url 'articles:list' %}">전체 글</a>
+  </div>
 </div>
 {% endblock body %}

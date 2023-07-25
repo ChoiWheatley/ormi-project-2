@@ -1,28 +1,23 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
 {% block title %}
-글 조회 
+글 조회
 {% endblock title %}
-  
-
 
 {% block body %}
 
+<div class="container">
 
-<div class="main">
-
-
-  <h2 class="main-title">글 조회</h2>
-
-
+  <a href="{% url 'articles:list' %}" class="btn btn-outline-secondary">
+    <img width="20px" height="20px" src="{% static 'img/prev.png' %}" alt="이전 페이지" />
+  </a>
   <div class="view">
     <div class="view-header">
-      <h2>{{object.title}}</h2>
+      <h1>{{object.title}}</h1>
       <div class="view-info">
-        <p>작성자: {{object.author.nickname}}</p>|
-        <p>작성일: {{object.created_at|date:"Y.m.d"}}</p>|
+        <p>작성자: {{object.author.nickname}}</p>
+        <p>작성일: {{object.created_at|date:"Y.m.d"}}</p>
         <p>조회수: {{object.view_count}}</p>
       </div>
     </div>
@@ -33,9 +28,9 @@
 
   </div>
   <div class="btn-group">
-    <a href="{% url 'articles:list' %}" class="btn">목록</a>
-    <a href="{% url 'articles:modify' object.id %}" class="btn">수정</a>
-    <a href="{% url 'articles:remove' object.id %}" class="btn">삭제</a>
+    <a href="{% url 'articles:list' %}" class="btn btn-outline-secondary">목록</a>
+    <a href="{% url 'articles:modify' object.id %}" class="btn btn-outline-secondary">수정</a>
+    <a href="{% url 'articles:remove' object.id %}" class="btn btn-outline-danger">삭제</a>
   </div>
 
 </div>
