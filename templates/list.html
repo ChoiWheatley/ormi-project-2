@@ -10,7 +10,7 @@
     <h2 class="fw-bolder">게시판</h2>
 
     <div class="text-muted">
-        <p><strong>{{ object_list|length }}개</strong>의 게시글이 있습니다.</p>
+        <p><strong>{{ page_obj.paginator.count }}개</strong>의 게시글이 있습니다.</p>
 
         <form>
             <div class="mx-md-auto p-2 mt-5 mb-5 bg-light form-group">
