@@ -35,7 +35,7 @@
   <div class="btn-group">
     <a href="{% url 'articles:list' %}" class="btn">목록</a>
     <a href="{% url 'articles:modify' object.id %}" class="btn">수정</a>
-    <button type="button" class="btn">삭제</button>
+    <a href="{% url 'articles:remove' object.id %}" class="btn">삭제</a>
   </div>
 
 </div>
