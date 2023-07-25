@@ -18,7 +18,7 @@
 
   {{ form.non_field_errors }}
 
-  <form action="{% url 'articles:new' %}" method="post">
+  <form action="{% url 'articles:modify' object.id %}" method="post">
 
     {% csrf_token %}
 

@@ -135,6 +135,7 @@ AUTH_USER_MODEL = "users.User"
 TINYMCE_JS_URL = os.path.join(STATIC_URL, "js/tinymce/tinymce.min.js")
 
 LOGIN_URL = "/users/signin/"
+LOGIN_REDIRECT_URL = "/"
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"

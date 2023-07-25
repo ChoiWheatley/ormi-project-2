@@ -3,7 +3,7 @@ from tinymce.widgets import TinyMCE
 from articles.models import Article
 
 
-class NewArticleForm(forms.ModelForm):
+class ArticleForm(forms.ModelForm):
     """TinyMCE widget"""
 
     class Meta:

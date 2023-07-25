@@ -13,7 +13,7 @@
         <p><strong>{{ object_list|length }}개</strong>의 게시글이 있습니다.</p>
 
         <form>
-            <div class="mx-md-auto p-2 mt-5 mb-5 bg-light">
+            <div class="mx-md-auto p-2 mt-5 mb-5 bg-light form-group">
                 <label for="category" class="text-muted">카테고리</label>
                 <select class="form-select" id="category">
                     <option>전체</option>
@@ -29,10 +29,9 @@
 
                 <label for="search" class="text-muted">검색</label>
                 <input id="search" type="search" class="form-control" placeholder="검색어를 입력해주세요" />
-                <button class="p-2 rounded float-end" type="submit">
-                    <img src="{% static 'img/icon-search.png' %}" alt="검색" />
+                <button class="d-inline-block float-end btn btn-light" type="submit">
+                    <img class="rounded-circle" src="{% static 'img/icon-search.png' %}" alt="검색" />
                 </button>
-
             </div>
         </form>
     </div>
@@ -84,17 +83,47 @@
 
     <div class="board-bottom">
         <!-- 페이지 -->
-        <div class="pagination">
-            <a href="#"><link ref="icon" type="image/png" href="{% static 'img/first.png' %}" alt="처음 페이지"/></a>
-            <a href="#"><link ref="icon" type="image/png" href="{% static 'img/prev.png' %}" alt="이전 페이지" /></a>
-            <a href="#" class="num active">1</a>
-            <a href="#" class="num">2</a>
-            <a href="#" class="num">3</a>
-            <a href="#" class="num">4</a>
-            <a href="#" class="num">5</a>
-            <a href="#"><img src="{% static 'img/next.png' %}" alt="첫번째 페이지" /></a>
-            <a href="#"><img src="{% static 'img/last.png' %}" alt="이전 페이지" /></a>
-        </div>
+        <ul class="pagination">
+            <li class="page-item">
+                <a href="#" class="page-link"><img width="20px" height="20px" src="{% static 'img/first.png' %}"
+                        alt="처음 페이지" /></a>
+            </li>
+            <li class="page-item">
+                <a href="#" class="page-link"><img width="20px" height="20px" src="{% static 'img/prev.png' %}"
+                        alt="이전 페이지" /></a>
+            </li>
+            <li class="page-item">
+                <a href="#" class="page-link">1</a>
+            </li>
+            <li class="page-item">
+                <a href="#" class="page-link">1</a>
+            </li>
+            <li class="page-item">
+                <a href="#" class="page-link">1</a>
+            </li>
+            <li class="page-item">
+                <a href="#" class="page-link">1</a>
+            </li>
+            <li class="page-item">
+                <a href="#" class="page-link">1</a>
+            </li>
+            <li class="page-item">
+                <a href="#" class="page-link">1</a>
+            </li>
+            <li class="page-item">
+                <a href="#" class="page-link">1</a>
+            </li>
+            <li class="page-item">
+                <a href="#" class="page-link">
+                    <img width="20px" height="20px" src="{% static 'img/next.png' %}" alt="첫번째 페이지" />
+                </a>
+            </li>
+            <li class="page-item">
+                <a href="#" class="page-link">
+                    <img width="20px" height="20px" src="{% static 'img/last.png' %}" alt="이전 페이지" />
+                </a>
+            </li>
+        </ul>
         <!-- //페이지 -->
         <div class="btn-group">
             <button class="btn">선택삭제</button>

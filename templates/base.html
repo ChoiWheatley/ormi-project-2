@@ -18,8 +18,9 @@
   <link rel="icon" type="image/png" href="{% static 'favicon/favicon-16x16.png'%}" sizes="16x16" />
 
   <script src="{% static 'js/bootstrap-5.3.0-dist/bootstrap.js' %}"></script>
-
-  {{ form.media }}
+  
+  {% block head %}
+  {% endblock head %}
 
   {% block stylesheet %}
   {% endblock stylesheet %}

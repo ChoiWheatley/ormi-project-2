@@ -1,3 +1,5 @@
+from typing import Any
+from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -8,7 +10,6 @@ from users.models import User
 
 class SigninView(LoginView):
     template_name = "login.html"
-    next_page = reverse_lazy("articles:list")
 
 
 class SignoutView(LoginRequiredMixin, LogoutView):
